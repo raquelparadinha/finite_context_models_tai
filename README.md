@@ -14,8 +14,8 @@
 
 ### Go inside the src folder and use this
 
-```g++ -std=c++17 -o was_chatted was_chatted.cpp```
+```g++ -std=c++17 -o was_chatted was_chatted.cpp -lm```
 
 ### Then use this
 
-```./was_chatted ./PP_texts/original ./PP_texts/gpt ./test_text.txt```
+```./was_chatted ../PP_texts/original ../PP_texts/gpt ../PP_texts/test_text.txt```
