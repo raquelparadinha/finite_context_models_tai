@@ -9,8 +9,12 @@
 #include <regex>
 #include <numeric> // For std::accumulate
 #include <algorithm> // For std::transform
+#include <set>
 
 namespace fs = std::filesystem;
+
+std::string ALPHABET;
+int ALPHABET_SIZE;
 
 // Function to convert a string to lowercase
 std::string toLowercase(const std::string& str) {
@@ -45,44 +49,57 @@ std::string readTextFromFile(const std::string& filePath) {
     return toLowercase(buffer.str());
 }
 
-// Function to train the context frequency model and calculate probabilities
 std::unordered_map<std::string, std::unordered_map<char, double>> trainModel(const std::vector<std::string>& texts, int k, double alpha) {
     std::unordered_map<std::string, std::unordered_map<char, int>> counts;
     std::unordered_map<std::string, std::unordered_map<char, double>> probabilities;
-    std::string alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
-    int alphabetSize = alphabet.size();
-
-    // Collect counts
-    std::regex regex("[^a-z0-9]");
+    std::set<char> alphabetSet;
+    std::regex regex("[^a-z0-9áâãàçéêíóôõú,.;:!?\"'()\\[\\]{}]");
+    
+    // Collect counts and build the alphabet
     for (const auto& text : texts) {
         std::string filtered_text = std::regex_replace(text, regex, "");
+        if (filtered_text.size() < k) continue;
         for (size_t i = 0; i + k < filtered_text.size(); ++i) {
             std::string context = filtered_text.substr(i, k);
             char next_char = filtered_text[i + k];
             counts[context][next_char]++;
+            alphabetSet.insert(next_char);
         }
     }
 
+    // Convert the alphabet set to a string
+    ALPHABET = std::string(alphabetSet.begin(), alphabetSet.end());
+    ALPHABET_SIZE = ALPHABET.size();
+
     // Calculate probabilities
     for (const auto& context_entry : counts) {
-        int total_count = std::accumulate(context_entry.second.begin(), context_entry.second.end(), 0, [](int sum, const auto& p) { return sum + p.second; });
-        total_count += alpha * alphabetSize;
-        for (char c : alphabet) {
-            probabilities[context_entry.first][c] = (counts[context_entry.first].count(c) ? counts[context_entry.first].at(c) : 0) + alpha;
-            probabilities[context_entry.first][c] /= total_count;
+        const auto& context = context_entry.first;
+        const auto& char_counts = context_entry.second;
+        int total_count = std::accumulate(char_counts.begin(), char_counts.end(), 0, [](int sum, const auto& p) { return sum + p.second; });
+        total_count += alpha * ALPHABET_SIZE;
+        for (char c : ALPHABET) {
+            probabilities[context][c] = (char_counts.count(c) ? char_counts.at(c) : 0) + alpha;
+            probabilities[context][c] /= total_count;
         }
     }
 
     // Handle unseen contexts
-    for (const auto& text : texts) {
-        std::string filtered_text = std::regex_replace(text, regex, "");
-        for (size_t i = 0; i + k < filtered_text.size(); ++i) {
-            std::string context = filtered_text.substr(i, k);
-            if (probabilities.find(context) == probabilities.end()) {
-                for (char c : alphabet) {
-                    probabilities[context][c] = alpha / (alpha * alphabetSize);
-                }
+    for (const auto& context_entry : counts) {
+        const auto& context = context_entry.first;
+        if (probabilities.find(context) == probabilities.end()) {
+            for (char c : ALPHABET) {
+                probabilities[context][c] = alpha / (alpha * ALPHABET_SIZE);
             }
+        }
+    }
+
+    for (auto& context_entry : probabilities) {
+        double sum = 0;
+        for (const auto& char_prob : context_entry.second) {
+            sum += char_prob.second;
+        }
+        for (auto& char_prob : context_entry.second) {
+            char_prob.second /= sum;
         }
     }
 
@@ -92,7 +109,7 @@ std::unordered_map<std::string, std::unordered_map<char, double>> trainModel(con
 // Function to calculate the total number of bits required for compression
 int compressFileSize(const std::string& text, const std::unordered_map<std::string, std::unordered_map<char, double>>& probabilities, int k) {
     int totalBits = 0;
-    std::regex regex("[^a-z0-9]");
+    std::regex regex("[^a-z0-9áâãàçéêíóôõú,.;:!?\"'()\\[\\]{}]");
     std::string filtered_text = std::regex_replace(toLowercase(text), regex, "");
     for (size_t i = 0; i + k < filtered_text.size(); ++i) {
         std::string context = filtered_text.substr(i, k);
@@ -102,7 +119,7 @@ int compressFileSize(const std::string& text, const std::unordered_map<std::stri
             double prob = probabilities.at(context).at(next_char);
             totalBits += -std::log2(prob);
         } else {
-            double prob = 1.0 / 36; // Even distribution if unknown (26 letters + 10 digits)
+            double prob = 1.0 / ALPHABET_SIZE; // Even distribution if unknown
             totalBits += -std::log2(prob);
         }
     }
@@ -131,31 +148,53 @@ int main(int argc, char* argv[]) {
 
     // Define the context size and smoothing parameter
     int contextSize = 3;  // Adjust based on empirical data or performance requirements
-    double alpha = 0.5;  // Smoothing parameter, can be adjusted as needed
+    // double alpha = 0.5;  // Smoothing parameter, can be adjusted as needed
+    // Try different alpha values
+    for (double alpha = 0.1; alpha <= 1.0; alpha += 0.1) {
+        // Train models
+        auto rhProbabilities = trainModel(rh, contextSize, alpha);
+        auto rcProbabilities = trainModel(rc, contextSize, alpha);
 
-    // Train models
-    auto rhProbabilities = trainModel(rh, contextSize, alpha);
-    auto rcProbabilities = trainModel(rc, contextSize, alpha);
-
-    // Print rhProbabilities
-    for (const auto& context_entry : rhProbabilities) {
-        std::cout << "Context: " << context_entry.first << std::endl;
-        for (const auto& prob_entry : context_entry.second) {
-            std::cout << "Character: " << prob_entry.first << ", Probability: " << prob_entry.second << std::endl;
+        for (const auto& [context, char_probabilities] : rhProbabilities) {
+            double sum = 0.0;
+            for (const auto& [c, prob] : char_probabilities) {
+                sum += prob;
+            }
+            if (std::abs(sum - 1.0) > 1e-6) {
+                std::cout << "Sum of probabilities for context " << context << " is not equal to 1.0. Sum: " << sum << std::endl;
+            }
         }
+
+        // Calculate compression ratios and percentages
+        auto [rhCompressionRatio, rhCompressionPercentage] = calculateCompressionStats(t, rhProbabilities, contextSize);
+        auto [rcCompressionRatio, rcCompressionPercentage] = calculateCompressionStats(t, rcProbabilities, contextSize);
+
+        // Output the results
+        std::cout << "Alpha: " << alpha << std::endl;
+        std::cout << "Compression ratio for 'not rewritten by ChatGPT': " << rhCompressionRatio << std::endl;
+        std::cout << "Compression percentage for 'not rewritten by ChatGPT': " << rhCompressionPercentage << "%" << std::endl;
+        std::cout << "Compression ratio for 'rewritten by ChatGPT': " << rcCompressionRatio << std::endl;
+        std::cout << "Compression percentage for 'rewritten by ChatGPT': " << rcCompressionPercentage << "%" << std::endl;
+        std::cout << "Classification result: " << (rhCompressionRatio > rcCompressionRatio ? "Not rewritten by ChatGPT" : "Rewritten by ChatGPT") << std::endl;
         std::cout << std::endl;
     }
+    std::cout << "ALPHABET: " << ALPHABET << std::endl;
+    std::cout << "ALPHABET_SIZE: " << ALPHABET_SIZE << std::endl;
+    // // Train models
+    // auto rhProbabilities = trainModel(rh, contextSize, alpha);
+    // auto rcProbabilities = trainModel(rc, contextSize, alpha);
+        
 
-    // Calculate compression ratios and percentages
-    auto [rhCompressionRatio, rhCompressionPercentage] = calculateCompressionStats(t, rhProbabilities, contextSize);
-    auto [rcCompressionRatio, rcCompressionPercentage] = calculateCompressionStats(t, rcProbabilities, contextSize);
+    // // Calculate compression ratios and percentages
+    // auto [rhCompressionRatio, rhCompressionPercentage] = calculateCompressionStats(t, rhProbabilities, contextSize);
+    // auto [rcCompressionRatio, rcCompressionPercentage] = calculateCompressionStats(t, rcProbabilities, contextSize);
 
-    // Output the results
-    std::cout << "Compression ratio for 'not rewritten by ChatGPT': " << rhCompressionRatio << std::endl;
-    std::cout << "Compression percentage for 'not rewritten by ChatGPT': " << rhCompressionPercentage << "%" << std::endl;
-    std::cout << "Compression ratio for 'rewritten by ChatGPT': " << rcCompressionRatio << std::endl;
-    std::cout << "Compression percentage for 'rewritten by ChatGPT': " << rcCompressionPercentage << "%" << std::endl;
-    std::cout << "Classification result: " << (rhCompressionRatio > rcCompressionRatio ? "Not rewritten by ChatGPT" : "Rewritten by ChatGPT") << std::endl;
+    // // Output the results
+    // std::cout << "Compression ratio for 'not rewritten by ChatGPT': " << rhCompressionRatio << std::endl;
+    // std::cout << "Compression percentage for 'not rewritten by ChatGPT': " << rhCompressionPercentage << "%" << std::endl;
+    // std::cout << "Compression ratio for 'rewritten by ChatGPT': " << rcCompressionRatio << std::endl;
+    // std::cout << "Compression percentage for 'rewritten by ChatGPT': " << rcCompressionPercentage << "%" << std::endl;
+    // std::cout << "Classification result: " << (rhCompressionRatio > rcCompressionRatio ? "Not rewritten by ChatGPT" : "Rewritten by ChatGPT") << std::endl;
 
     return 0;
 }
