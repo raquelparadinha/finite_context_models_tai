@@ -8,3 +8,14 @@
 | 103234 | paulojnpinto02@ua.pt  | [Paulo Pinto](https://github.com/Pjnp5)                |
 | 103341 | miguelamatos@ua.pt    | [Miguel Matos](https://github.com/mankings)            |
 | 103470 | fantao@ua.pt          | [Filipe Antão](https://github.com/fantao)              |
+
+
+# How to run
+
+### Go inside the src folder and use this
+
+```g++ -std=c++17 -o was_chatted was_chatted.cpp```
+
+### Then use this
+
+```./was_chatted ./PP_texts/original ./PP_texts/gpt ./test_text.txt```
