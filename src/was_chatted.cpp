@@ -161,7 +161,28 @@ int main(int argc, char* argv[]) {
     
     // Train models
     auto rhProbabilities = trainModel(rh, contextSize, alpha);
+
+    /*for (const auto& outerPair : rhProbabilities) {
+        std::cout << "Outer Key: " << outerPair.first << std::endl;
+        
+        // Iterate through the inner unordered_map
+        for (const auto& innerPair : outerPair.second) {
+            std::cout << "    Inner Key: " << innerPair.first << ", Value: " << innerPair.second << std::endl;
+        }
+    }
+
+    std::cout << "YAUUUUUUUU" << std::endl;*/
+
     auto rcProbabilities = trainModel(rc, contextSize, alpha);
+
+    /*for (const auto& outerPair : rcProbabilities) {
+        std::cout << "Outer Key: " << outerPair.first << std::endl;
+        
+        // Iterate through the inner unordered_map
+        for (const auto& innerPair : outerPair.second) {
+            std::cout << "    Inner Key: " << innerPair.first << ", Value: " << innerPair.second << std::endl;
+        }
+    }*/
 
     // Calculate compression ratios and percentages
     auto [rhCompressionRatio, rhCompressionPercentage] = calculateCompressionStats(t, rhProbabilities, contextSize);
