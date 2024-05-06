@@ -18,4 +18,4 @@
 
 ### Then use this
 
-```./was_chatted ../PP_texts/original ../PP_texts/gpt ../PP_texts/test_text.txt```
+```./was_chatted ../PP_texts/original ../PP_texts/gpt ../PP_texts/test_text.txt 0.5```
