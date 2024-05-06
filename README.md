@@ -14,8 +14,4 @@
 
 ### On the main folder, not in **src**
 
-```g++ -std=c++17 -o was_chatted was_chatted.cpp -lm```
-
-### Then use this
-
-```./was_chatted ../dataset/original ../dataset/gpt ../dataset/test_text.txt```
+```make run ARGS="dataset/original dataset/gpt dataset/test_text.txt 0.5```
