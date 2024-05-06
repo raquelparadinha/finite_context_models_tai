@@ -12,7 +12,7 @@
 
 # How to run
 
-### Go inside the src folder and use this
+### On the main folder, not in **src**
 
 ```g++ -std=c++17 -o was_chatted was_chatted.cpp -lm```
 

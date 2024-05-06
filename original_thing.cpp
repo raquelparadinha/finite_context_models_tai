@@ -6,7 +6,6 @@
 #include <unordered_map>
 #include <filesystem>
 #include <cmath> // For log2 function
-#include <regex>
 #include <numeric> // For std::accumulate
 #include <algorithm> // For std::transform
 #include <set>
@@ -53,23 +52,13 @@ std::unordered_map<std::string, std::unordered_map<char, double>> trainModel(con
     std::unordered_map<std::string, std::unordered_map<char, int>> counts;
     std::unordered_map<std::string, std::unordered_map<char, double>> probabilities;
     std::set<char> alphabetSet;
-    std::regex regex;
-
+    
     // Collect counts and build the alphabet
     for (const auto& text : texts) {
-        for (char c : text) {
-            if (std::isalnum(c)) {
-                alphabetSet.insert(std::tolower(c));
-            }
-        }
-        ALPHABET = std::string(alphabetSet.begin(), alphabetSet.end());
-        regex = std::regex("[^" + ALPHABET + "]");
-
-        std::string filtered_text = std::regex_replace(text, regex, "");
-        if (filtered_text.size() < k) continue;
-        for (size_t i = 0; i + k < filtered_text.size(); ++i) {
-            std::string context = filtered_text.substr(i, k);
-            char next_char = filtered_text[i + k];
+        if (text.size() < k) continue;
+        for (size_t i = 0; i + k < text.size(); ++i) {
+            std::string context = text.substr(i, k);
+            char next_char = text[i + k];
             counts[context][next_char]++;
             alphabetSet.insert(next_char);
         }
@@ -101,7 +90,6 @@ std::unordered_map<std::string, std::unordered_map<char, double>> trainModel(con
         }
     }
 
-    // Normalize probabilities to ensure they sum to 1
     for (auto& context_entry : probabilities) {
         double sum = 0;
         for (const auto& char_prob : context_entry.second) {
@@ -111,18 +99,15 @@ std::unordered_map<std::string, std::unordered_map<char, double>> trainModel(con
             char_prob.second /= sum;
         }
     }
-
     return probabilities;
 }
 
 // Function to calculate the total number of bits required for compression
 int compressFileSize(const std::string& text, const std::unordered_map<std::string, std::unordered_map<char, double>>& probabilities, int k) {
     int totalBits = 0;
-    std::regex regex("[^" + ALPHABET + "]");
-    std::string filtered_text = std::regex_replace(toLowercase(text), regex, "");
-    for (size_t i = 0 + k; i < filtered_text.size(); ++i) {
-        std::string context = filtered_text.substr(i - k, k);
-        char next_char = filtered_text[i];
+    for (size_t i = 0; i + k < text.size(); ++i) {
+        std::string context = text.substr(i, k);
+        char next_char = text[i + k];
         if (probabilities.find(context) != probabilities.end() &&
             probabilities.at(context).find(next_char) != probabilities.at(context).end()) {
             double prob = probabilities.at(context).at(next_char);
