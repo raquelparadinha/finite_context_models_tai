@@ -12,10 +12,6 @@
 
 # How to run
 
-### Go inside the src folder and use this
+### On the main folder, not in **src**
 
-```g++ -std=c++17 -o was_chatted was_chatted.cpp -lm```
-
-### Then use this
-
-```./was_chatted ../PP_texts/original ../PP_texts/gpt ../PP_texts/test_text.txt 0.5```
+```make run ARGS="PP_texts/original PP_texts/gpt PP_texts/test_text.txt 0.5"```

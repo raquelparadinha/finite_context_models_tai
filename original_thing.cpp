@@ -99,7 +99,6 @@ std::unordered_map<std::string, std::unordered_map<char, double>> trainModel(con
             char_prob.second /= sum;
         }
     }
-
     return probabilities;
 }
 
