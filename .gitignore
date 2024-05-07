@@ -38,3 +38,6 @@
 venv*
 /venv*
 venv/*
+.env
+.venv
+.vscode
