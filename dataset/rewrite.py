@@ -32,17 +32,17 @@ def main():
                     sec = ''
 
             checkpoint_file = OUT_FOLDER + '/checkpoint_' + file
-            checkpoint = 0
+            checkpoint = -1
             if os.path.exists(checkpoint_file):
                 with open(checkpoint_file, 'r') as f:
                     checkpoint = int(f.readlines()[-1])
+            else:
+                with open(OUT_FOLDER + file[:len(APPEND)] + '.txt', 'w') as f:
+                    f.write('')
 
             n_sections = len(text) // (MAX_TOKENS * 4)
-            with open(OUT_FOLDER + file[:len(APPEND)] + '.txt', 'w') as f:
-                f.write('')
-
             for i, sec in enumerate(sections):
-                if checkpoint > i:
+                if checkpoint >= i:
                     print(f'Skipping {file} section {i}/{n_sections}')
                     continue
 

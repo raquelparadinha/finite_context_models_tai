@@ -15,6 +15,8 @@ def main():
             
         # remove empty lines
         filtered_lines = [l for l in lines if len(l) > 1]
+        # remove chapter lines
+        filtered_lines = [l for l in filtered_lines if not l.startswith('CAPÍTULO')]
         # remove chapter numbers
         filtered_lines = [l for l in filtered_lines if l.replace('I', '').replace('V', '').replace('X', '').strip() != '']
         # remove separators
