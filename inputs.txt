@@ -1,4 +1,0 @@
-/home/raquelparadinha/Desktop/MEI/TAI/finite_context_models_tai/dataset/original
-/home/raquelparadinha/Desktop/MEI/TAI/finite_context_models_tai/dataset
-/home/raquelparadinha/Desktop/MEI/TAI/finite_context_models_tai/dataset/test_text.txt
-0.3

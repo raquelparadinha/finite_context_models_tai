@@ -20,8 +20,5 @@ fi
 # Read contents of the file
 inputs=$(<inputs.txt)
 
-make clean
-make all
-
 # Run the C++ program with the inputs
 ./bin/markov_model_classifier $inputs
