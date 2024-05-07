@@ -32,6 +32,12 @@
 *.app
 
 .DS_Store
+.vscode
+
+
+venv*
+/venv*
+venv/*
 .env
 .venv
 .vscode
