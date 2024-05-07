@@ -12,6 +12,29 @@
 
 # How to run
 
+## Command line mode
 ### On the main folder, not in **src**
 
 ```make run ARGS="dataset/original dataset/gpt dataset/test_text.txt 0.5```
+
+## GUI mode
+
+1. Enter gui folder
+
+```cd gui```
+
+2. Create a virtual environment
+
+```python3 -m venv venv```
+
+3. Activate the environment
+
+```source /venv/bin/activate```
+
+4. Install the requirements
+
+```pip install -r requirements.txt ```
+
+5. Run the program
+
+```python3 gui.py```
