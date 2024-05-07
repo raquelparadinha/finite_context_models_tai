@@ -1,0 +1,1 @@
+367 Hyper Text Transfer Protocol (HTTP) is used for the transmission of informationâ€š graphicsâ€š sounds and animation between a client web browser andthe web server.  It is defined in RFC2616 and updated with RFC2817.  

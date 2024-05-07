@@ -1,0 +1,1 @@
+883 JavaScript is a programming language used for creating interactive and dynamic web pages  as well as for other applications such as mobile app development and game development.  It runs on the client-side of the web and is executed by web browsers  allowing for real-time updates and interactivity on web pages.  

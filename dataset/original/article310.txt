@@ -1,0 +1,1 @@
+309 Apache is a freely available multiplatform web server.  It is currently the most commonly used server on internet connected sites.  Its genesis was in early 1995 when developers of some high visibility web sites decided to pool their patches and enhancements to the NCSA / 1. 3 server to create a patchy server.  The project has since gained considerable momentum.  

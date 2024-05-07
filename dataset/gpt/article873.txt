@@ -1,0 +1,1 @@
+872 A honeynet is a network of computers or devices designed to attract and monitor cyber attackers.  It simulates a real network and can be used for research  intelligence gathering  incident response  training  and testing security measures.  Honeynets are a valuable tool for improving cybersecurity and protecting against potential attacks.  

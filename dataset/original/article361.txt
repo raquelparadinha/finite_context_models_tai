@@ -1,0 +1,1 @@
+360 Firmware often takes the form of a device which is attached toâ€š or built intoâ€ša computerâ€š such as a ROM chip.  It performs some software function but isnot a program in the sense of being installed and run from the computerâ€™sstorage media.  Henceâ€š it is located in the middle of the conceptual continuumbetween hardware and software.  

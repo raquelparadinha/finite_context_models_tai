@@ -1,0 +1,1 @@
+234 Broadly speaking  a graphics file consists of data that speci-fies the color of each pixel (dot) in an image.  Since there are many  ways  this  information  can  be  organized   there  are  a variety  of  graphics  file  formats.   

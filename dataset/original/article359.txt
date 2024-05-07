@@ -1,0 +1,1 @@
+358 False Negative occurs when an actual intrusive action happened but thesystem fails to detect it or simply allows it to pass as a non-intrusive behavior.  Similarly if a virus was activated by a user action on the PC butthe software failed to detect itâ€š a False Negative occurred  

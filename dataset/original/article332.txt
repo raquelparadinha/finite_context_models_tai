@@ -1,0 +1,1 @@
+331 Computer Metal Oxide Semiconductor (CMOS) is a section of the RAMmemory containing important data  such as date and time of the computerclock  and its configuration settings.  A battery that is housed on the computermotherboard powers the CMOS.  While a virus can overwrite information onthe CMOS  it can neither infect nor reside in it.  

@@ -1,0 +1,1 @@
+337 Cyclic Redundancy Check (CRC) is a technique used to determine fileintegrity through the generation of a CRC algorithm.  The CRC algorithmcalculates the CRC of the file in question.  This way a protection system canbe established  whereby if something changes  the CRC also changes.  Thispermits the detection of any possible modifications 

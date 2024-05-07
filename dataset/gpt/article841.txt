@@ -1,0 +1,1 @@
+840 Computer Metal Oxide Semiconductor (CMOS) is a low-power technology used in computer systems to store configuration data  such as the system clock and boot sequence.  It is powered by a small battery and is located on the motherboard.  CMOS allows for reliable storage of critical configuration data.  

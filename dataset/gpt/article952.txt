@@ -1,0 +1,1 @@
+951 In computer science  data structures are a way of organizing and storing data in a computer's memory or on disk so that it can be accessed and manipulated efficiently.  Data structures provide a way to represent complex data and algorithms in a compact and organized form.  

@@ -1,0 +1,1 @@
+881 Java applets are small programs written in the Java programming language that can be embedded into web pages and run by web browsers.  They can perform a variety of tasks  but have declined in popularity due to security concerns and the rise of other web technologies.  

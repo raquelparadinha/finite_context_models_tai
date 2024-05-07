@@ -1,0 +1,1 @@
+762 a fault-tolerant system depends on a combination of redundancy  error detection and correction  system monitoring and management  system recovery and failover  and careful system design and architecture to provide reliable operation in the face of failures or malfunctions.  

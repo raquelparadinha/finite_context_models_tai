@@ -1,0 +1,1 @@
+363 honeynet is a network of hosts that is specifically designed to be compromised.  It is further refinement of a Honeypot.  Highest security precautionsare taken and such networks are heavily monitored.  The purpose of suchnetworks is to study Hackersâ€™ behaviorsâ€š toolsâ€š motives and possible contrameasures.  

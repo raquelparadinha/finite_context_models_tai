@@ -1,0 +1,1 @@
+435 A database management system consists of a database (a collection of information  usually organized into records with component fields) and facilities for adding  updating  retrieving  manipulating  and reporting on data.  

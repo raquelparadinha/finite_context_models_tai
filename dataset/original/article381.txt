@@ -1,0 +1,1 @@
+380 Operating System are computer programs that that are primarily or entirelyconcerned with controlling the computer and its associated hardware  ratherthan with processing work for users.  Computers can operate without application software  but they cannot run without an operating system.  Examplesare DOS  MaxOS  Linux and Unix.  

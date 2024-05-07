@@ -1,0 +1,1 @@
+871 Hexadecimal is a numbering system that uses a base of 16  commonly used in computer programming and digital electronics.  It uses digits 0-9 and letters A-F to represent values from 0 to 15.  Hexadecimal provides a more concise and human-readable way to represent binary numbers  and is used to represent memory addresses  color values  and other numerical data.  

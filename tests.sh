@@ -12,4 +12,6 @@ do
         echo "Trying with context size $number with alpha $alpha"
         make run ARGS="dataset/original dataset/gpt dataset/test_text.txt $alpha $number"
     done
+
+    
 done

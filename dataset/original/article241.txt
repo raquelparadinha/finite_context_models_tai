@@ -1,0 +1,1 @@
+240 PCx is a compressed bitmap format originally used by the popular PC Paintbrush program.  In recent years it has been largely supplanted by BmP and TIFF.  

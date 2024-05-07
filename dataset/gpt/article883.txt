@@ -1,0 +1,1 @@
+882 The Java sandbox is a security feature that restricts the actions of untrusted or potentially malicious code running within the Java Virtual Machine (JVM).  It limits the code's access to system resources and prevents it from consuming excessive resources  providing a secure environment for executing untrusted code.  

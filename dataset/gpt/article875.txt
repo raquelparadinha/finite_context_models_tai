@@ -1,0 +1,1 @@
+874 In computer networks  a host refers to any device or computer that is connected to a network and can communicate with other devices on that network using a unique identifier  such as an IP address.  Hosts are essential for enabling communication and data transfer between devices and users on the network.  

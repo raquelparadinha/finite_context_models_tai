@@ -1,0 +1,1 @@
+891 A computer password is a sequence of characters used to authenticate a user and grant access to a computer or system.  They help prevent unauthorized access and are required for logging in to a computer  user account  network  or application.  Strong passwords should be unique  complex  and regularly changed.  Passwords are a fundamental component of computer security.  

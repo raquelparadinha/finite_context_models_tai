@@ -1,0 +1,1 @@
+401 Sniffer is software designed to look at and/or to collect traffic on the wire. Sniffing tools are built into majority of UNIX type systems and there is wealthof free tools available on the internet for other platforms.  Majority of themare designed around the libpcap library and tcpdump tool.  Some IntrusionDetection Systems have option of being run as a sniffer too.  

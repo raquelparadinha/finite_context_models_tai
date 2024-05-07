@@ -1,0 +1,1 @@
+909 Smurfing is a type of cyber attack that floods a network with ICMP echo requests using a spoofed IP address to amplify the traffic and overwhelm the target.  It's often used in DDoS attacks and can be mitigated by filtering incoming traffic and blocking broadcast traffic.  

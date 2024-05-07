@@ -1,0 +1,1 @@
+884 Keystroke monitoring is the process of tracking and recording the keys that are pressed on a computer keyboard  usually for monitoring employee activity or detecting unauthorized access to computer systems.  It can be performed using hardware or software-based methods  but is controversial due to privacy concerns and potential for unethical use.  

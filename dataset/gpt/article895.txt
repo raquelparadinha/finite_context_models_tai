@@ -1,0 +1,1 @@
+894 Ping is a computer network utility used to test the connectivity and response time of network devices.  It sends a packet of data to a specific IP address or hostname and measures the round-trip time it takes for the data to travel between two devices.  It's commonly used for network troubleshooting and monitoring.  

@@ -1,0 +1,1 @@
+950 Data mining is the process of analyzing large datasets to discover hidden patterns  relationships  and insights.  It involves using advanced statistical and computational techniques to identify meaningful correlations and trends within the data  which can then be used to inform business decisions or improve processes.  

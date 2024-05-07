@@ -1,0 +1,1 @@
+749 PCX is a file format used to store and exchange digital images.  It was one of the first widely used graphic file formats for IBM PC computers and was originally developed by ZSoft Corporation in the 1980s.  

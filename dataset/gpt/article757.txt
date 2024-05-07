@@ -1,0 +1,1 @@
+756 Grid computing is a type of distributed computing that involves the coordination of resources across a network of computers to perform a common task.  Grid computing allows multiple computers to work together to solve large-scale problems or perform complex calculations that would be difficult or impossible for a single computer to handle.  

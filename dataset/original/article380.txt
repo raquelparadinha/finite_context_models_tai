@@ -1,0 +1,1 @@
+379 Open Source is code that is put into the public domain.  Hence  any usercan take advantage of it usually for free.  Most importantly  if the code ispopular many people may examine it and  therefore  assuring that securitybugs are published quickly.  Very nicely for users  fixes are usually availablein relatively short time thereafter 

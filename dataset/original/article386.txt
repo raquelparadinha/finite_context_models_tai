@@ -1,0 +1,1 @@
+385 Ping stands for Packet Internet (or Inter-Network) Groper and is a packet(small message) sent to test the validity/availability of an IP address ona network.  The technical term for â€˜pingâ€™ is the Internet Control MessageProtocol.  Maliciously sending large volumes of â€˜Pingsâ€™ to cause difficultiesfor anyone else attempting to access that address is known as Smurfing.  

@@ -1,0 +1,1 @@
+202   WAIS  (Wide  Area  Information  Service)  is  a  gateway that  allows  databases  to  be  searched  over  the  Inter-net.   WAIS  provided  a  relatively  easy  way  to  bring large  data  resources  online.   It   too   has  largely  been replaced by Web-based database services.  

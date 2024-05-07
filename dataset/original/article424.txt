@@ -1,0 +1,1 @@
+423 An expert system is a computer program that uses encoded knowledge and rules of reasoning to draw conclusions or solve problems.  Since reasoning (as opposed to mechanical calculation) is a form of intelligent behavior  the field of expert systems (also called knowledge representation or knowledge engineering) is part of the broader field of AI 

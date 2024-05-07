@@ -1,0 +1,1 @@
+397 Secure Hash A process which reduces a message of arbitrary length to afixed length fingerprint which is very unlikely to be the same for any othermessage.  The word â€œsecureâ€ indicates that the algorithm has been chosen sothat it is not possible to forge a message which to have given hash value  norto create two similar messages with the same hash value.  

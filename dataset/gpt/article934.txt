@@ -1,0 +1,1 @@
+933 Expert systems typically consist of two main components: a knowledge base and an inference engine.  The knowledge base contains the rules  facts  and other information relevant to the problem domain.  The inference engine uses this knowledge to reason about the problem  make decisions  and provide recommendations or solutions.  

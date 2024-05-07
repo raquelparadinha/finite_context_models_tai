@@ -1,0 +1,1 @@
+944 DBMS stands for Database Management System.  It is a software system that is used to manage  store  and retrieve data in a database.  A DBMS is designed to provide a way to store and organize large amounts of data  as well as to provide a means of accessing that data quickly and efficiently.  

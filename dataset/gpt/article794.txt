@@ -1,0 +1,1 @@
+793 key feature of Forth is its extensibility.  Forth is designed to be a highly modular language  with words being defined and composed in a hierarchical structure.  This means that Forth programs can be easily extended and customized to meet specific needs  and that new words can be defined and added to the language as needed.  

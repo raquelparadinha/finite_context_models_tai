@@ -1,0 +1,1 @@
+373 Java Sandbox contains specific provisions to deal with potentially dangerousapplets  and tries to execute them in a protected mode that severely limits theeffects they can have on other applications and the host computer.  The Javadesign team spent time worrying about malicious executables and how theycan be prevented from running amok  hence the Sandbox was invented.  

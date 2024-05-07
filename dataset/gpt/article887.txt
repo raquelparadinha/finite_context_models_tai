@@ -1,0 +1,1 @@
+886 The Master Boot Record (MBR) is a piece of code at the beginning of a hard disk that initiates the boot process and contains information about the disk's partition table and boot loader.  It can be vulnerable to malware attacks  and preventative measures such as antivirus software and backups are recommended.  

@@ -1,0 +1,1 @@
+835 A Computer Security Incident Response Team (CSIRT) is a group of professionals responsible for quickly identifying and responding to computer security incidents.  They follow established procedures to contain  analyze  and mitigate incidents  and may also be responsible for ongoing monitoring  vulnerability identification  and policy development.  

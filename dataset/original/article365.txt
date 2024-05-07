@@ -1,0 +1,1 @@
+364 Honeypot is a system or host specifically designed to be compromised. Such a system seems to be attractive to Hackersâ€š but at the same momentthese are heavily monitored.  The purpose of such a host is to study attackerâ€™sbehaviorâ€š security tools and possible contra measures.  

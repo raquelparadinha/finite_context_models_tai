@@ -1,0 +1,1 @@
+261 The  file  server  has  many  advantages  over  storing  the files needed by each user on his or her own PC.  By storing the files on a central server  ordinary usersâ€™ PCs do not need to have larger  more expensive disk drives.  Central storage also  makes  it  easier  to  ensure  that  backups  are  run  regularly.  

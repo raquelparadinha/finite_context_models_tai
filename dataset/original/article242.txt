@@ -1,0 +1,1 @@
+241 TIFF   or  Tagged  Image  File  Format   is  also  a  compressed bitmap  format.   There  are  several  variations  by  different vendors   which  can  lead  to  compatibility  problems.   Imple-mentations  can  use  various  compression  methods   gener-ally leading to ratios of 1. 5 to 1 to about 2 to 1.  

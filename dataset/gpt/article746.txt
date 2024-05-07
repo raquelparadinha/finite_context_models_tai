@@ -1,0 +1,1 @@
+745 One advantage of the bitmap format is that it can store images with very high color depths  meaning that it can capture a wide range of colors and shades.  However  this comes at the cost of file size  as bitmap images tend to be larger in size than other image formats due to the amount of data required to store each pixel.  

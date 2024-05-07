@@ -1,0 +1,1 @@
+319 Blue Screen of Death (BSOD) is a term used in relations to Microsoft Windows operating systems.  Some crashes of these systems appear as a bluesscreen with white hexadecimal text (part of memory dump).  Many usersconsider this a useless informationâ€š however it can be often used to detectmisbehaving programs (often not from Microsoft) causing these fatal crashes 

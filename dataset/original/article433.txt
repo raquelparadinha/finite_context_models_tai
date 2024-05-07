@@ -1,0 +1,1 @@
+432 With regard to databases  ensuring data security includes the assignment and control of usersâ€™ level of access to sensitive data and the use of monitoring tools to detect compromise  diversion  or unauthorized changes to database files  .  When data is proprietary  licensing agreements with both database vendors and content providers may also need to be enforced.  

@@ -1,0 +1,1 @@
+362 Hexadecimal is a numerical system using base 16 (as opposed to the usualbase 10).  Hexadecimal is a useful way to express binary computer numbersin which a byte is normally expressed as having 8 bits; with 2 hexadecimalcharacters representing eight binary digitsâ€”aka a byte.  

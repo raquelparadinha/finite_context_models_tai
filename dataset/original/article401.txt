@@ -1,0 +1,1 @@
+400 Smurfing is an attack that exploits features of the IP protocol within theTCP/IP protocol used for internet communications.  A smurf attack causes a victimâ€™s computer to become completely â€˜waylaidâ€™ with answering fictitious network requests (â€˜Pingsâ€™) that it grinds to ahalt and prevents anyone else from logging on.   

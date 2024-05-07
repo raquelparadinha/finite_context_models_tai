@@ -1,0 +1,1 @@
+876 HTTP is a protocol for transmitting data over the internet between web servers and clients  such as web browsers.  It defines how data is formatted and transmitted  and enables web servers and clients to communicate and exchange data efficiently.  

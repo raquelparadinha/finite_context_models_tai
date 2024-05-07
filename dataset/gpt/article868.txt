@@ -1,0 +1,1 @@
+867 In machine learning  a false negative is when a model incorrectly predicts a negative outcome for a positive example.  It can have serious consequences in cases such as medical diagnosis or fraud detection  so it's important to optimize the model's performance to reduce false negatives.  

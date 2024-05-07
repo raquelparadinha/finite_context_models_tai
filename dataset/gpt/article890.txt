@@ -1,0 +1,1 @@
+889 An operating system (OS) is a software program that manages computer hardware and software resources  providing an interface for users to interact with the computer and run applications.  It manages system resources  provides security features  and manages system updates and software installations.  Examples include Windows  macOS  Linux  and Android.  
