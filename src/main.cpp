@@ -3,8 +3,8 @@
 #include "MarkovModel.hpp"
 
 int main(int argc, char* argv[]) {
-    if (argc != 5) {
-        std::cerr << "Usage: " << argv[0] << " <path_to_not_rewritten_texts_folder> <path_to_rewritten_texts_folder> <path_to_target_text_file> <alpha>\n";
+    if (argc != 6) {
+        std::cerr << "Usage: " << argv[0] << " <path_to_not_rewritten_texts_folder> <path_to_rewritten_texts_folder> <path_to_target_text_file> <alpha> <context_size>\n";
         return 1;
     }
 
@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
     std::string t = FileReader::readTextFromFile(argv[3]);
     double alpha = std::stod(argv[4]);
 
-    int contextSize = 4;
+    int contextSize = std::stoi(argv[5]);
     MarkovModel model(contextSize, alpha);
     std::string result = model.classify(t, rh, rc);
 
