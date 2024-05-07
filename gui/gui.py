@@ -58,19 +58,19 @@ rc_entry.grid(row=3, column=2, padx=10)
 rc_btn = ctk.CTkButton(app, text="Browse", command=lambda: open_folder(rc_entry), fg_color="grey")
 rc_btn.grid(row=3, column=3, padx=10)
 
-k_label = ctk.CTkLabel(app, text="Evaluation window size (k):")
+k_label = ctk.CTkLabel(app, text="Markov model order ([1, 10]):")
 k_label.grid(row=4, column=1, sticky='e', padx=10, pady=10)
 k_entry = ctk.CTkEntry(app, width=widget_width, placeholder_text="Integer value")
 k_entry.grid(row=4, column=2, padx=10)
 
-alpha_label = ctk.CTkLabel(app, text="Smoothing parameter (alpha):")
+alpha_label = ctk.CTkLabel(app, text="Smoothing parameter (]0, 1[):")
 alpha_label.grid(row=5, column=1, sticky='e', padx=10, pady=10)
 alpha_entry = ctk.CTkEntry(app, width=widget_width, placeholder_text="Double value")
 alpha_entry.grid(row=5, column=2, padx=10)
 
 # Process inputs and close the application
 def process_inputs():
-    process = Popen(["./../bin/markov_model_classifier", rh_entry.get(), rc_entry.get(), file_entry.get(), alpha_entry.get()], stdout=PIPE, stderr=PIPE)
+    process = Popen(["./../bin/markov_model_classifier", rh_entry.get(), rc_entry.get(), file_entry.get(), alpha_entry.get(), k_entry.get()], stdout=PIPE, stderr=PIPE)
     output, errors = process.communicate()
     
     if process.returncode == 0:
@@ -84,10 +84,16 @@ def process_inputs():
 # Function to reset all input fields
 def reset_inputs():
     file_entry.delete(0, ctk.END)
+    file_entry.configure(placeholder_text="File path")
     rh_entry.delete(0, ctk.END)
+    rh_entry.configure(placeholder_text="Folder path")
     rc_entry.delete(0, ctk.END)
+    rc_entry.configure(placeholder_text="Folder path")
     k_entry.delete(0, ctk.END)
+    k_entry.configure(placeholder_text="Integer value")
     alpha_entry.delete(0, ctk.END)
+    alpha_entry.configure(placeholder_text="Double value")
+    message_label.configure(text="")
 
 submit_btn = ctk.CTkButton(app, text="Submit", command=process_inputs, fg_color="#008000")
 submit_btn.grid(row=6, column=2, pady=20)

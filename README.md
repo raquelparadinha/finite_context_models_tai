@@ -29,7 +29,7 @@
 
 3. Activate the environment
 
-```source/venv/activate```
+```source /venv/bin/activate```
 
 4. Install the requirements
 
