@@ -15,7 +15,7 @@
 ## Command line mode
 ### On the main folder, not in **src**
 
-```make run ARGS="dataset/original dataset/gpt dataset/test_text.txt 0.5```
+```make run ARGS="dataset/original dataset/gpt dataset/test_text.txt 0.5 10```
 
 ## GUI mode
 
