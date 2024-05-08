@@ -12,13 +12,21 @@ cd test/gpt
 
 file_list_gpt=()
 
+gpt_size=0
+
 accuracy_gpt=0.0
 
 for file in *; do
     if [ -f "$file" ]; then
         file_list_gpt+=("$file")
+        echo "$file"
+        ((gpt_size += 1))
+
     fi
 done
+echo "${#file_list_gpt}"
+
+
 
 cd ../..
 
@@ -36,10 +44,7 @@ for file in "${file_list_gpt[@]}"; do
     fi
     echo $accuracy_gpt
 done
-
-echo "accuracy_gpt: $accuracy_gpt"
-echo "file_list_gpt: ${#file_list_gpt[@]}"
-accuracy_gpt=$(awk "BEGIN { print $accuracy_gpt / ${#file_list_gpt[@]} }")
+accuracy_gpt=$(awk "BEGIN { print $accuracy_gpt / $gpt_size }")
 accuracy_gpt=$(awk "BEGIN { print $accuracy_gpt * 100 }")
 
 echo "Final Accuracy for Rewritten ChatGPT: $accuracy_gpt %" 
@@ -50,9 +55,12 @@ file_list_original=()
 
 accuracy_original=0.0
 
+original_size=0
+
 for file in *; do
     if [ -f "$file" ]; then
         file_list_original+=("$file")
+        ((original_size += 1))
     fi
 done
 
@@ -72,9 +80,7 @@ for file in "${file_list_original[@]}"; do
     echo $accuracy_original
 done
 
-echo "accuracy_original: $accuracy_original"
-echo "file_list_original: ${#file_list_original[@]}"
-accuracy_original=$(awk "BEGIN { print $accuracy_original / ${#file_list_original[@]} }")
+accuracy_original=$(awk "BEGIN { print $accuracy_original / $original_size }")
 accuracy_original=$(awk "BEGIN { print $accuracy_original * 100 }")
 
 
