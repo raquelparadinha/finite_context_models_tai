@@ -3,7 +3,7 @@
 echo "Starting tests"
 
 numbers="10"
-alphas="0.50 0.75 1.00"
+alphas="0.75"
 
 for number in $numbers
 do
@@ -15,4 +15,4 @@ do
     
 done
 
-python3 ploy.py
+python3 plot.py
