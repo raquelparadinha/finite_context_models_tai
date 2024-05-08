@@ -25,8 +25,9 @@ cd ../..
 # Print the list of file names
 echo "List of files in test/gpt:"
 for file in "${file_list_gpt[@]}"; do
+    echo "Running test for $file"
     output=$(make run ARGS="dataset/original dataset/gpt test/gpt/$file $alpha $context_size")
-    if [[ $output == *"Rewritten by ChatGPT"* ]]; then
+    if [[ $output == *"ChatGPT Text"* ]]; then
         echo "Got it right"
         accuracy_gpt=$(awk "BEGIN { print $accuracy_gpt + 1.0 }")
     
@@ -36,7 +37,9 @@ for file in "${file_list_gpt[@]}"; do
     echo $accuracy_gpt
 done
 
-accuracy_gpt=$(awk "BEGIN { print $accuracy_gpt / ${#file_list_gpt} }")
+echo "accuracy_gpt: $accuracy_gpt"
+echo "file_list_gpt: ${#file_list_gpt[@]}"
+accuracy_gpt=$(awk "BEGIN { print $accuracy_gpt / ${#file_list_gpt[@]} }")
 accuracy_gpt=$(awk "BEGIN { print $accuracy_gpt * 100 }")
 
 echo "Final Accuracy for Rewritten ChatGPT: $accuracy_gpt %" 
@@ -56,20 +59,22 @@ done
 cd ../..
 
 # Print the list of file names
-echo "List of files in test/gpt:"
+echo "List of files in test/original:"
 for file in "${file_list_original[@]}"; do
+    echo "Running test for $file"
     output=$(make run ARGS="dataset/original dataset/gpt test/original/$file $alpha $context_size")
-    if [[ $output == *"Not rewritten by ChatGPT"* ]]; then
+    if [[ $output == *"Human Text"* ]]; then
         echo "Got it right"
         accuracy_original=$(awk "BEGIN { print $accuracy_original + 1.0 }")
-    
     else
         echo "Got it wrong"
     fi
     echo $accuracy_original
 done
 
-accuracy_original=$(awk "BEGIN { print $accuracy_original / ${#file_list_original} }")
+echo "accuracy_original: $accuracy_original"
+echo "file_list_original: ${#file_list_original[@]}"
+accuracy_original=$(awk "BEGIN { print $accuracy_original / ${#file_list_original[@]} }")
 accuracy_original=$(awk "BEGIN { print $accuracy_original * 100 }")
 
 

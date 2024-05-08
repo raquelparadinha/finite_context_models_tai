@@ -97,7 +97,7 @@ std::string MarkovModel::classify(const std::string& text, const std::vector<std
     auto [rhCompressionRatio, rhCompressionPercentage] = rhModel.calculateCompressionStats(text);
     auto [rcCompressionRatio, rcCompressionPercentage] = rcModel.calculateCompressionStats(text);
 
-    return (rhCompressionRatio > rcCompressionRatio ? "Not rewritten by ChatGPT" : "Rewritten by ChatGPT");
+    return (rhCompressionRatio > rcCompressionRatio ? "Human Text" : "ChatGPT Text");
 }
 
 std::string MarkovModel::getAlphabet() {

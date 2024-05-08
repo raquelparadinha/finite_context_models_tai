@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[]) {
     if (argc != 6) {
-        std::cerr << "Usage: " << argv[0] << " <path_to_not_rewritten_texts_folder> <path_to_rewritten_texts_folder> <path_to_target_text_file> <alpha> <context_size>\n";
+        std::cerr << "Usage: " << argv[0] << " <path_to_not_rewritten_texts_folder> <path_to_rewritten_texts_folder> <path_to_target_text_file> <alpha> <context_size> \n";
         return 1;
     }
 

@@ -41,3 +41,4 @@ venv/*
 .env
 .venv
 .vscode
+AI_Human.csv
