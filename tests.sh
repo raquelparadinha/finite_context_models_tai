@@ -2,8 +2,8 @@
 
 echo "Starting tests"
 
-numbers="10 50 100 150 200 250 300"
-alphas="0.5 0.75 1.00"
+numbers="10"
+alphas="0.75"
 
 for number in $numbers
 do
@@ -14,4 +14,4 @@ do
     done
 done
 
-python3 ploy.py
+python3 plot.py

@@ -21,7 +21,7 @@ accuracy_original_normalized = [float(a) / 100 for a in accuracy_original]
 
 path_gpt = "images/"
 
-plt.scatter(alphas, context_size, c=accuracy_gpt_normalized, cmap='viridis', s=100, alpha=0.5)
+plt.scatter(alphas, context_size, c=accuracy_gpt_normalized, cmap='RdYlGn', s=100, alpha=0.5)
 plt.colorbar(label='Accuracy GPT')
 plt.xlabel('Alpha')
 plt.ylabel('Context Size')
@@ -29,7 +29,7 @@ plt.title('Accuracy vs. Inputs')
 plt.savefig('accuracy_gpt.png')
 plt.close()
 
-plt.scatter(alphas, context_size, c=accuracy_original_normalized, cmap='viridis', s=100, alpha=0.5)
+plt.scatter(alphas, context_size, c=accuracy_original_normalized, cmap='RdYlGn', s=100, alpha=0.5)
 plt.colorbar(label='Accuracy Original')
 plt.xlabel('Alpha')
 plt.ylabel('Context Size')

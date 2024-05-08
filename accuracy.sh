@@ -24,7 +24,7 @@ for file in *; do
 
     fi
 done
-echo "${#file_list_gpt}"
+echo "${#file_list_gpt[@]}"
 
 
 
@@ -63,6 +63,7 @@ for file in *; do
         ((original_size += 1))
     fi
 done
+echo "${#file_list_original[@]}"
 
 cd ../..
 
