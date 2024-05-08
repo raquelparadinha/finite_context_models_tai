@@ -12,7 +12,6 @@ do
         echo "Trying with context size $number with alpha $alpha"
         ./accuracy.sh $alpha $number
     done
-    
 done
 
 python3 ploy.py
