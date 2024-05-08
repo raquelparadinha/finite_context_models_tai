@@ -14,7 +14,6 @@ void MarkovModel::trainModel(const std::vector<std::string>& texts) {
     std::unordered_map<std::string, std::unordered_map<char, int>> counts;
     std::set<char> alphabetSet;
 
-    // Collect counts and build the alphabet
     for (const auto& text : texts) {
         if (text.size() < contextSize) continue;
         for (size_t i = 0; i + contextSize < text.size(); ++i) {
@@ -25,11 +24,9 @@ void MarkovModel::trainModel(const std::vector<std::string>& texts) {
         }
     }
 
-    // Convert the alphabet set to a string
     ALPHABET = std::string(alphabetSet.begin(), alphabetSet.end());
     ALPHABET_SIZE = ALPHABET.size();
 
-    // Calculate probabilities
     for (const auto& context_entry : counts) {
         const auto& context = context_entry.first;
         const auto& char_counts = context_entry.second;
@@ -41,7 +38,6 @@ void MarkovModel::trainModel(const std::vector<std::string>& texts) {
         }
     }
 
-    // Handle unseen contexts
     for (const auto& context_entry : counts) {
         const auto& context = context_entry.first;
         if (probabilities.find(context) == probabilities.end()) {
@@ -72,7 +68,7 @@ int MarkovModel::compressFileSize(const std::string& text) {
             double prob = probabilities.at(context).at(next_char);
             totalBits += -std::log2(prob);
         } else {
-            double prob = 1.0 / ALPHABET_SIZE; // Even distribution if unknown
+            double prob = 1.0 / ALPHABET_SIZE;
             totalBits += -std::log2(prob);
         }
     }
@@ -80,7 +76,7 @@ int MarkovModel::compressFileSize(const std::string& text) {
 }
 
 std::pair<double, double> MarkovModel::calculateCompressionStats(const std::string& text) {
-    int originalSize = text.size() * 8; // Original size in bits (8 bits per character)
+    int originalSize = text.size() * 8; 
     int compressedSize = compressFileSize(text);
     double compressionRatio = static_cast<double>(originalSize) / compressedSize;
     double compressionPercentage = (1 - (static_cast<double>(compressedSize) / originalSize)) * 100;
